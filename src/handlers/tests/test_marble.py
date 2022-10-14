@@ -1,5 +1,5 @@
 from processor.marble_processor import MarbleProcessor
-from common.filter_params import FilterParams
+#from common.filter_params import FilterParams
 import pandas as pd
 import json
 
@@ -10,8 +10,9 @@ I include this file in two places out of habit, but I dont need them both for th
 '''
 
 def main(collection):
+    json_config_path="resources/filters.json"
     marble_processor = MarbleProcessor()
-    marble_processor.process_marbles(collection)
+    marble_processor.process_marbles(collection,json_config_path)
 
 
 ''''
@@ -37,3 +38,4 @@ if __name__ == "__main__":
         { "id": 10, "color": "blue", "name": "Bob", "weight": 0.5 }
         ]
     main(collection)
+    print("processinng complete")

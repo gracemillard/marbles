@@ -19,7 +19,7 @@ class FilterParams():
         if not configurations['filter_type']:
             raise ValueError(f"no ilters selected config might not be configred right")
         elif "size" in configurations['filter_type']:
-            print("size was selected in config")
+          #  print("size was selected in config")
             self.size=True
 
             if configurations['size_constraint']:
@@ -31,7 +31,7 @@ class FilterParams():
         if not configurations['filter_type']:
             raise ValueError(f"no ilters selected config might not be configred right")
         elif "color" in configurations['filter_type']:
-            print("color was selected in config")
+           # print("color was selected in config")
             self.color=True
             if configurations['color_pattern']:
                 self.color_pattern=configurations['color_pattern']
@@ -43,7 +43,7 @@ class FilterParams():
         if not configurations['filter_type']:
             raise ValueError(f"no ilters selected config might not be configred right")
         elif "name" in configurations['filter_type']:
-            print("name was selected in config")
+          #  print("name was selected in config")
             self.name=True
 
 
@@ -56,7 +56,7 @@ class FilterParams():
 
         self._is_size(configurations)
 
-        print(f"everthing set , here is a look {self.color_pattern}")
+    #    print(f"everthing set , here is a look {self.color_pattern}")
 
 
 

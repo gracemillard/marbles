@@ -13,28 +13,22 @@ class MarbleProcessor(FilterParams):
     def __init__(self):
         self._logger = get_logger()
         
-    def process_marbles(self,collection):
+    def process_marbles(self,collection, json_config_path):
 
-        self._set_params("resources/filters.json")
+        self._set_params(json_config_path)
 
-        print(f"this is the color patern {self.color_pattern}")
 
-        ###maybe start by restructuring the json input
-        self._logger.info(f"this is the input {collection}")
-
-       # self._logger.info(f"this is the input {collection[0]}")
-
-       self._logger.info(f"Starting processing for marbles")
+        self._logger.info(f"Starting processing for marbles")
 
         to_be_sorted=[]
        
-       for m in range(len(collection)):
-           unit=collection[m]
+        for m in range(len(collection)):
+            unit=collection[m]
 
             #filter out small marbles
-           if self.size:
-                if _check_weight(unit):
-                   pass
+            if self.size:
+                if self._check_weight(unit):
+                    pass
                 else:
                     continue
             else:
@@ -43,7 +37,7 @@ class MarbleProcessor(FilterParams):
             #filter out marbles that dont have palendrome names
             
             if self.name:
-                if _check_name(unit):
+                if self._check_name(unit):
                     pass
                 else:
                     continue
@@ -55,21 +49,45 @@ class MarbleProcessor(FilterParams):
         #sort the marbles tht were collected
 
         if self.color:
-            sorted_marbles = _sort_marbles_by_colors(to_be_sorted)
+            sorted_marbles = self._sort_marbles_by_colors(to_be_sorted)
+            self._logger.info(f"this is the sorted list of marbles: {sorted_marbles}")
             return sorted_marbles
 
         else:
-            print("I havent decided what should be returned if the config is empty")
+            self._logger.info("I havent decided what should be returned if the config is empty")
 
-    def _filter_by_weight(self, marble):
+    def _check_weight(self, marble):
+        if marble['weight'] >= float(self.size_constraint):
+           # self._logger.info(f"yes, marble of size {marble['weight']} is greater than {float(self.size_constraint)}")
+            return True
+        else:
+            return False
 
-        return True
+    def _check_name(self, marble):
 
-    def _filter_by_names(self, marbles):
-        
-        return True
+        name= marble['name']
+        name= name.lower()
+        name = ''.join(char for char in name if char.isalpha())
+        name = name==name[::-1]
+        if name:
+           # self._logger.info("yes is palenrome")
+            return True
+        else:
+           # self._logger.info("not palenrome")
+            return False
 
     def _sort_marbles_by_colors(self, marbles):
+        color_map={'R':'red','B':'blue','O':'orange','Y':'yellow','G':'green','I':'indigo','V':'violet'}
+    
+        color_pattern_longform_list=[]
+        for i in self.color_pattern:
+            color_pattern_longform_list.append(color_map[i])
+
+        order_list_dict = {color: index for index, color in enumerate(color_pattern_longform_list)}
+        marbles_sorted = sorted(marbles, key=lambda i: order_list_dict[i["color"]])
+
+    #    self._logger.info(f" this is marbles sortd :{marbles_sorted}")
+    #    self._logger.info(f" this is goal list :{color_pattern_longform_list}")
 
         return marbles_sorted
 

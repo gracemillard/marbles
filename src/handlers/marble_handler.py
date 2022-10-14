@@ -14,7 +14,6 @@ def main(collection):
 
 
 if __name__ == "__main__":
-    print("running")
     collection= [
         {"id": 1, "color": "blue", "name": "Bob", "weight": 0.5 },
         { "id": 2, "color": "red", "name": "John Smith", "weight": 0.25 },
