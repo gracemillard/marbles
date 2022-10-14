@@ -20,7 +20,7 @@ pip install -r handlers/requirements.txt -i https://pypi.org/simple
 
 ## The Deployment Plan
 
-My curent idea:
+My curent idea: <br />
 - dockerize >> run on k8s >> maybe flask webservice to receive the json and some kinda load balencer 
 
 
@@ -33,11 +33,12 @@ python3 -m tests.test_marble
 
 ## Consideraions
 
--- How often will this be used ---> if infrequent will use lambda instead
+-- How often will this be used ---> if infrequent will use lambda instead <br />
 --- Where shall I store my modifiable config file? bucket or in memory?
 
 ## TO DOs
-- NEED TO RUN MORE TESTS !!!!!!!
--write more details about deployment plan
+- NEED TO RUN MORE TESTS !!!!!!!  <br />
+- write more details about deployment plan <br />
+- figure out runtime complexity <br />
 
 
