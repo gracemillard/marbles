@@ -1,6 +1,6 @@
 # Marbles 
 
-this is a template I use for READMEs 
+this is a template I use for READMEs<br />
     I included a few templates I use a lot : requirements, setup, gitnore, vscode , logging
 
 
@@ -33,7 +33,11 @@ python3 -m tests.test_marble
 ## Consideraions
 
 -- How often will this be used ---> if infrequent will use lambda instead <br />
---- Where shall I store my modifiable config file? bucket or in memory?
+
+--- Where shall I store my default modifiable config file? bucket or in memory?
+- Config Update option 1: If in memory the rest service can update the config ---> but may needd roles & auth <br />
+- Config Update option 2: If in bucket ...
+
 
 ## TO DOs
 - NEED TO RUN MORE TESTS !!!!!!!  <br />

@@ -8,8 +8,9 @@ def main(collection):
     if not collection:
         raise ValueError("Empty collection, cannot proceed")
 
+    json_config_path="resources/filters.json"
     marble_processor = MarbleProcessor()
-    marble_processor.process_marbles(collection)
+    marble_processor.process_marbles(collection,json_config_path)
 
 
 
@@ -27,3 +28,5 @@ if __name__ == "__main__":
         { "id": 10, "color": "blue", "name": "Bob", "weight": 0.5 }
         ]
     main(collection)
+
+    print("processinng complete")

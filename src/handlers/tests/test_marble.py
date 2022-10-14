@@ -10,6 +10,12 @@ I include this file in two places out of habit, but I dont need them both for th
 '''
 
 def main(collection):
+
+    if not collection:
+        raise ValueError("Empty collection, cannot proceed")
+
+
+
     json_config_path="resources/filters.json"
     marble_processor = MarbleProcessor()
     marble_processor.process_marbles(collection,json_config_path)
