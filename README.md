@@ -1,6 +1,7 @@
 # Grace Takehome
 
-```this is the template I use for READMEs 
+```this is a template I use for READMEs 
+    I included a few templates I use a lot : requirements, setup, gitnore, vscode , logging
 ```
 
 
@@ -15,12 +16,12 @@ pip install -r handlers/requirements.txt -i https://pypi.org/simple
 ```
 
 ## About the code
--  **Bold Title**:
-    - **bullet point**:  `italics` 
-<br/>
-
+-  you asked for "accessible and modular" so I included modifiable constraints (you can change the filters with the filters.json file in /resources)
 
 ## The Deployment Plan
+
+My curent idea:
+- dockerize >> run on k8s >> maybe flask webservice to receive the json and some kinda load balencer 
 
 
 ## How to run test
@@ -32,5 +33,11 @@ python3 -m tests.test_marble
 
 ## Consideraions
 
+-- How often will this be used ---> if infrequent will use lambda instead
+--- Where shall I store my modifiable config file? bucket or in memory?
+
 ## TO DOs
+- NEED TO RUN MORE TESTS !!!!!!!
+-write more details about deployment plan
+
 
