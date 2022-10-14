@@ -1,0 +1,9 @@
+{
+    "filter_type":[
+       "size",
+       "name",
+       "color"
+    ],
+    "size_constraint":"0.5",
+    "color_pattern":"ROYGBIV"
+ }
